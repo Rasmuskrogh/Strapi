@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trips",
+  "info": {
+    "name": "Trip",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "bookings": {
+      "via": "trips",
+      "collection": "booking"
+    }
+  }
+}
